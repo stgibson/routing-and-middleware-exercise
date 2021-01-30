@@ -9,7 +9,7 @@ app.use("/items", itemsRoutes);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
-  return res.json({ error: err.message });
+  return res.status(statusCode).json({ error: err.message });
 });
 
 module.exports = app;
